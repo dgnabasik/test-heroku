@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/gofiber/cors"
-	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber"
 )
 
 func main() {
