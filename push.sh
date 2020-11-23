@@ -1,7 +1,7 @@
 echo dgnabasik
-git pull
+git pull https://github.com/dgnabasik/test-heroku 
 echo -n "push?"
 read
 git add --all :/
-git commit -am "Release 1.0.0"
-git push -u # herouk master
+git commit -am "Release 1.0.1"
+git push https://github.com/dgnabasik/test-heroku master
