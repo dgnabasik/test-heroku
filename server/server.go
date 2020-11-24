@@ -48,16 +48,15 @@ func main() {
 	}))
 
 	router.Use(ErrorHandler)
-	// Serve frontend static files from /build when AllowDirectoryIndex=false. Same folder as in golang/Dockerfile: COPY --from=builder /build/ /app/
+	router.LoadHTMLGlob("templates/*")
 	router.Use(static.Serve("/", static.LocalFile("./build", false)))
 
-	dataToUIPage := gin.H{
-		"REACT_APP_AUTH0_DOMAIN": "dev-6qbeg0e4.auth0.com",
-	}
-
-	// Handle the root route and the login routes:
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "index.html", dataToUIPage)
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html",
+			gin.H{
+				"title": "Home Page",
+			},
+		)
 	})
 
 	apiPort := GetPort()
