@@ -8,6 +8,10 @@ import (
 	"github.com/gofiber/fiber"
 )
 
+func serveStatic(app *fiber.App) {
+	app.Static("/", "./build")
+}
+
 func main() {
 	app := fiber.New()
 	//app.Use(cors.New())
@@ -16,7 +20,7 @@ func main() {
 		return ctx.SendString("Hello Heroku")
 	})
 
-	app.Static("/", "./build")
+	serveStatic(app)
 
 	port := os.Getenv("PORT")
 	if port == "" {
