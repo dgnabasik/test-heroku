@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	//"github.com/gofiber/cors"
+	"github.com/gofiber/cors"
 	"github.com/gofiber/fiber"
 )
 
@@ -14,7 +14,7 @@ func serveStatic(app *fiber.App) {
 
 func main() {
 	app := fiber.New()
-	//app.Use(cors.New())
+	app.Use(cors.New())
 
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		return ctx.SendString("Hello Heroku")
