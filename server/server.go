@@ -16,10 +16,6 @@ func main() {
 	app := fiber.New()
 	//app.Use(cors.New())
 
-	app.Get("/", func(ctx *fiber.Ctx) {
-		ctx.SendString("Hello Heroku")
-	})
-
 	serveStatic(app)
 
 	port := os.Getenv("PORT")
