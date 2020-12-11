@@ -17,6 +17,7 @@ lib-cov
 
 # dependencies
 /client/node_modules
+client/node_modules
 /.pnp
 .pnp.js
 
@@ -78,8 +79,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 finddock.sh
-golang/.bash_history
-golang/d.sh
-..env.swp
-golang/.ash_history
-react/.ash_history

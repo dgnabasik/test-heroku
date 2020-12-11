@@ -30,8 +30,17 @@ func GetPort() string {
 	return port
 }
 
-func GetTestData() {
-	//<<<
+// TestData struct
+type TestData struct {
+	Text string
+}
+
+// GetTestData func
+func GetTestData(ctx *gin.Context) {
+	testData := TestData{Text: "This is text."}
+	ctx.JSON(200, gin.H{
+		"TestData": testData,
+	})
 }
 
 func main() {
@@ -64,7 +73,7 @@ func main() {
 
 	test := router.Group("/")
 	{
-		aidata.GET("/test", GetTestData)
+		test.GET("/test", GetTestData)
 	}
 
 	apiPort := GetPort()
