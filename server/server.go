@@ -61,7 +61,7 @@ func main() {
 	}))
 
 	router.Use(ErrorHandler)
-	router.LoadHTMLGlob("./templates/*")
+	router.LoadHTMLGlob("templates/*.html")
 	router.Static("/static", "./build/static")
 	router.Use(static.Serve("/", static.LocalFile("./build", true)))
 
