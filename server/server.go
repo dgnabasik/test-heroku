@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/static"
@@ -61,7 +62,7 @@ func main() {
 	}))
 
 	router.Use(ErrorHandler)
-	router.LoadHTMLGlob("*.html")
+	router.LoadHTMLGlob(filepath.Join(os.Getenv("TEMPLATE_DIR"), "*"))
 	router.Static("/static", "./build/static")
 	router.Use(static.Serve("/", static.LocalFile("./build", true)))
 
