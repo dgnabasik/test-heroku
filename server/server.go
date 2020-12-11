@@ -30,6 +30,10 @@ func GetPort() string {
 	return port
 }
 
+func GetTestData() {
+	//<<<
+}
+
 func main() {
 	gin.SetMode(gin.ReleaseMode) // Switch to "release" mode in production; or export GIN_MODE=release
 	router := gin.Default()
@@ -49,15 +53,19 @@ func main() {
 
 	router.Use(ErrorHandler)
 	router.LoadHTMLGlob("templates/*")
-	router.Use(static.Serve("/", static.LocalFile("./build", false)))
+	router.Static("/static", "./build/static")
+	router.Use(static.Serve("/", static.LocalFile("./build", true)))
 
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html",
-			gin.H{
-				"title": "Home Page",
-			},
+			gin.H{"title": "Home Page"},
 		)
 	})
+
+	test := router.Group("/")
+	{
+		aidata.GET("/test", GetTestData)
+	}
 
 	apiPort := GetPort()
 	api := "Handling REST-API calls on " + ":" + apiPort
