@@ -4,7 +4,15 @@ import { Navbar } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function TestComponent() {
+class TestComponent extends React.Component {
+  constructor() {
+    super();
+    this.initialState = {  
+    };
+    this.state = this.initialState;
+  }
+  
+  render() {
     return (
       <div>
         <Navbar fixed='top' expand='md' bg='info' sticky='top' >
@@ -14,6 +22,7 @@ function TestComponent() {
         </Navbar>
       </div>
     );
+  }
 }
 
 export default TestComponent;
