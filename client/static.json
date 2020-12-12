@@ -6,7 +6,7 @@
   },
   "proxies": {
     "/": {
-      "origin": "https://eyesofthecommunity.herokuapp.com/"
+      "origin": "https://dfg-heroku.herokuapp.com/"
     }
   }
 }

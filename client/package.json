@@ -2,6 +2,20 @@
   "name": "test-heroku",
   "version": "0.1.0",
   "private": true,
+  "secure": false,
+  "license": "GNU General Public License (GPL)",
+  "description": "test-heroku",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 12.19.0",
+    "yarn": ">= 1.22.5",
+    "npm": ">= 6.14.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dgnabasik/test-heroku.git"
+  },
   "dependencies": {
     "@popperjs/core": "^2.5.4",
     "@testing-library/dom": "^7.29.0",
