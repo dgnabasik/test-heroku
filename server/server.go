@@ -72,10 +72,10 @@ func main() {
 		)
 	})
 
-	/*	test := router.Group("/")
-		{
-			test.GET("/test", GetTestData)
-		}*/
+	test := router.Group("/")
+	{
+		test.GET("/test", GetTestData)
+	}
 
 	apiPort := GetPort()
 	api := "Handling REST-API calls on " + ":" + apiPort

@@ -54,7 +54,7 @@ class App extends React.Component {
 
       <BrowserRouter>
         <Switch>
-        <Route exact path='/test' component={TestComponent} />
+        <Route path='/test' component={TestComponent} />
         </Switch>
       </BrowserRouter>
       </div>
