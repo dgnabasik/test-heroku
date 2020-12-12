@@ -63,7 +63,6 @@ func main() {
 
 	router.Use(ErrorHandler)
 	router.LoadHTMLGlob(filepath.Join(os.Getenv("TEMPLATE_DIR"), "*"))
-
 	router.Static("/static", os.Getenv("STATIC_DIR"))
 	router.Use(static.Serve("/", static.LocalFile(os.Getenv("BUILD_DIR"), true)))
 
@@ -73,10 +72,10 @@ func main() {
 		)
 	})
 
-	test := router.Group("/")
-	{
-		test.GET("/test", GetTestData)
-	}
+	/*	test := router.Group("/")
+		{
+			test.GET("/test", GetTestData)
+		}*/
 
 	apiPort := GetPort()
 	api := "Handling REST-API calls on " + ":" + apiPort
