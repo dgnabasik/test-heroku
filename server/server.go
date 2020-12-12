@@ -63,8 +63,9 @@ func main() {
 
 	router.Use(ErrorHandler)
 	router.LoadHTMLGlob(filepath.Join(os.Getenv("TEMPLATE_DIR"), "*"))
-	router.Static("/static", "./build/static")
-	router.Use(static.Serve("/", static.LocalFile("./build", true)))
+
+	router.Static("/static", os.Getenv("STATIC_DIR"))
+	router.Use(static.Serve("/", static.LocalFile(os.Getenv("BUILD_DIR"), true)))
 
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html",
